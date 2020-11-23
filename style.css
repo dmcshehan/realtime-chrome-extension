@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 250px;
+  min-height: 150px;
+  font-family: monospace;
+}
+
+#poke {
+  padding: 5px 10px;
+  background-color: tomato;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 14px;
+  outline: none;
+
+  cursor: pointer;
+}
