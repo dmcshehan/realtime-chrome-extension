@@ -1,5 +1,6 @@
 $(function () {
-    $('#poke').click(function () {
-        chrome.runtime.sendMessage({ todo: 'poked' });
+    $('#send').click(function () {
+        const message = $('#message').val();
+        chrome.runtime.sendMessage({ todo: 'poked', message });
     })
 })

@@ -9,12 +9,10 @@ socket.on('connect', function () {
 
 
 socket.on('reply', function (message) {
-    console.log(message);
-
     const notifObject = {
         type: 'basic',
         iconUrl: './icon64.png',
-        title: 'Someone Poked You',
+        title: 'Message from XX',
         message: message
     };
 
@@ -24,7 +22,7 @@ socket.on('reply', function (message) {
 
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.todo == 'poked') {
-        socket.emit('pork', 'I pork you');
+    if (request.todo == 'poked' && request.message !== '') {
+        socket.emit('pork', request.message);
     }
 })
