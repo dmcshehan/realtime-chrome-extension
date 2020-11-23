@@ -1,16 +1,18 @@
 /* Connects to the socket server */
 
-var socket = io.connect('http://localhost:5000');
+var socket = io.connect('https://real-time-ce-back.herokuapp.com/');
 
 socket.on('connect', function () {
-    console.log('Client connected');
+    socket.join('pork-room');
+
+    socket.on('pork', message => {
+        console.log(message);
+    })
 });
 
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    console.log("messaged received");
-
     if (request.todo == 'poked') {
-        socket.emit('poke', 'dmcshehan');
+        socket.to('pork-room').emit('pork', 'dmcshehan');
     }
 })
