@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+    "version": "1.0",
+    "name": "React Time",
+    "icons": {
+        "128": "icon128.png",
+        "64": "icon64.png",
+        "16":"icon16.png"
+    },
+    "permissions": ["storage"],
+    "browser_action": {
+        "default_icon":"icon16.png",
+        "default_popup": "popup.html",
+        "default_title": "Real Time"
+    },
+    "background": {
+        "scripts": ["socket.io.js","background.js"],
+        "persistent": true
+    }
+}
